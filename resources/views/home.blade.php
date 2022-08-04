@@ -12,6 +12,35 @@
                 </div>
             </div>
         </div>
+
+        <example-component class="my-4"></example-component>
+
+        <div id="jqueryTest">JQuery Test (Click me)</div>
+
+        
+
     </div>
 </div>
 @endsection
+
+@push('script')
+    <script type="text/javascript">
+        window.addEventListener('load', function() {
+            $( document ).ready(function() {
+
+                $('div#jqueryTest').click((e) => {
+                    alert('OK!')
+                })
+
+            });
+        });
+    </script>
+@endpush
+
+@push('head')
+<style>
+    div#jqueryTest {
+        cursor: pointer;
+    }
+</style>
+@endpush
