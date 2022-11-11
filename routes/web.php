@@ -24,5 +24,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::middleware('auth')->get('/hash/{q?}', function (Illuminate\Http\Request $request) {
 	$text = $request->q ?: Illuminate\Support\Str::random(8);
 	$hash = Illuminate\Support\Facades\Hash::make($text);
+	return view('hash')->with(['text' => $text, 'hash' => $hash]);
 	return ['text' => $text, 'hash' => $hash];
 })->name('hash');
